@@ -1,0 +1,8 @@
+<div class="container mt-4">
+    <app-employee-details [heading]="'Employee Details'" [user]="user" [loading]="loading" [defaultImage]="defaultImage"
+        [modalId]="'foodStatusModal'">
+    </app-employee-details>
+
+    <app-order-status [foodOrders]="foodOrders" [totalFine]="totalFine" modalId="foodStatusModal">
+    </app-order-status>
+</div>

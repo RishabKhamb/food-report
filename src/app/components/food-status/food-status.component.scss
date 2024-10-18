@@ -1,0 +1,14 @@
+/* Ensure that the navbar spans the full width of the container */
+.navbar {
+  width: 100%;
+}
+
+.pending-status {
+  background-color: yellow; /* Or any color you prefer */
+  font-weight: bold;
+}
+
+/* Table styling adjustments */
+.table-responsive {
+  overflow-x: auto;
+}

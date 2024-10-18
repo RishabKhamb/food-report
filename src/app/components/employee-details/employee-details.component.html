@@ -1,0 +1,52 @@
+<nav class="navbar bg-success border-bottom border-body w-100 p-2 rounded">
+    <h2 class="navbar-brand text-light">{{heading}}</h2>
+</nav>
+
+<!-- EMPLOYEE DETAILS TABLW -->
+<div class="table-responsive mt-3 rounded">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Profile</th>
+                <th>Employee Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Employee ID</th>
+                <th>Food status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngIf="loading">
+                <td colspan="6" class="text-center">
+                    <div class="spinner-border">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </td>
+            </tr>
+
+            <tr *ngIf="!loading && (!user)">
+                <td colspan="6" class="text-center">
+                    No employee data available.
+                </td>
+            </tr>
+
+            <tr *ngIf="!loading && user">
+                <td>
+                    <img [src]=" user.img || defaultImage" alt="{{user.f_name || 'User Image'}}"
+                        class="img-fluid rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                </td>
+                <td>{{ user?.f_name }} {{ user?.l_name }}</td>
+                <td>{{ user?.email }}</td>
+                <td>{{ maskPhoneNumber(user?.phone) }}</td>
+                <td>{{ user?.emp_id }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        [attr.data-bs-target]="'#' + modalId">
+                        View
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
